@@ -6,6 +6,7 @@ import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 
 import styles from './index.module.css';
+import { Icon } from '@iconify/react';
 
 import HeadShot from '/img/headshot_rounded_border.svg';
 
@@ -23,12 +24,29 @@ function Home() {
           <p>
             A brief one to two sentences about myself and my interests.
           </p>
+          <Socials />
         </div>
         <div className={styles.bloghome__image}>
           <HeadShot />
         </div>
       </div>
     </Layout>
+  );
+}
+
+function Socials() {
+  return (
+    <div className={styles.social__links} >
+      <a href='twitter.com/williebsweet' target="_blank">
+          <Icon icon="ri:twitter-line" />
+      </a>
+      <a href='linkedin.com/in/williebsweet' target="_blank">
+          <Icon icon="ri:linkedin-line" />
+      </a>
+      <a href='github.com/williebsweet' target="_blank">
+          <Icon icon="ri:github-line" />
+      </a>
+    </div>
   );
 }
 

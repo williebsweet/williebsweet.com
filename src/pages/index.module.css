@@ -61,6 +61,62 @@ html[data-theme='dark'] .bloghome__intro > p {
   height: auto;
 }
 
+.social__links {
+  width: 100%;
+  display: flex;
+  max-width: 150px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em 0;
+  z-index: 100;
+  position: relative;
+}
+
+.social__links a {
+  display: inline-flex;
+  border: none;
+  width: 2rem;
+  height: 2rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  line-height: 1;
+  transition: all 0.3s ease-in-out;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-delay: 0s;
+}
+
+.social__links a:hover {
+  background-color: rgb(0 120 231 / 10%);
+}
+
+.social__links > *,
+.social__links svg,
+.social__links svg path {
+  width: 24px;
+  height: 24px;
+  color: var(--ifm-color-primary);
+  fill: var(--ifm-color-primary);
+}
+
+.social__links .dropdown {
+  display: flex;
+  align-items: center;
+}
+
+.social__links .dropdown span {
+  margin-left: 6px;
+  /* font-weight: 700; */
+  font-size: 0.9em;
+}
+
+.social__links .dropdown__menu {
+  max-width: initial;
+  right: 0;
+  top: 120%;
+}
+
 .buttons {
   display: flex;
   align-items: center;
