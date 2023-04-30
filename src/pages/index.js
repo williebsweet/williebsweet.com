@@ -13,6 +13,16 @@ function Home() {
     <Layout
       title={`Hello from ${siteConfig.title}`}
       description="Description will go into a meta tag in <head />">
+      <div className={styles.hero}>
+        <div className={styles.bloghome__intro}>
+          <div className={styles.hero_text}>
+            I'm <span className={styles.intro__name}>Will</span>.
+          </div>
+          <p>
+            A brief one to two sentences about myself and my interests.
+          </p>
+        </div>
+      </div>
     </Layout>
   );
 }
