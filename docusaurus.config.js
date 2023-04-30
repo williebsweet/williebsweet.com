@@ -86,7 +86,7 @@ const config = {
       },
       footer: {
         style: 'dark',
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Will Sweet · Copyright © ${new Date().getFullYear()}`,
       },
       prism: {
         theme: lightCodeTheme,
