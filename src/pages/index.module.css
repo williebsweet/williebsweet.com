@@ -48,6 +48,18 @@ html[data-theme='dark'] .bloghome__intro > p {
   color: #dfdfdf;
 }
 
+.bloghome__image {
+  overflow: hidden;
+  width: 50%;
+  z-index: 5;
+  align-items: center;
+  justify-items: center;
+}
+
+.bloghome__image svg {
+  width: 100%;
+  height: auto;
+}
 
 .buttons {
   display: flex;

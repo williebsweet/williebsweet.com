@@ -7,6 +7,8 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 
 import styles from './index.module.css';
 
+import HeadShot from '/img/headshot_rounded_border.svg';
+
 function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
@@ -21,6 +23,9 @@ function Home() {
           <p>
             A brief one to two sentences about myself and my interests.
           </p>
+        </div>
+        <div className={styles.bloghome__image}>
+          <HeadShot />
         </div>
       </div>
     </Layout>
