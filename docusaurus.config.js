@@ -85,7 +85,6 @@ const config = {
         ],
       },
       footer: {
-        style: 'dark',
         copyright: `Will Sweet · Copyright © ${new Date().getFullYear()}`,
       },
       prism: {
