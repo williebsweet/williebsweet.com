@@ -25,8 +25,8 @@ function Home() {
             I'm a data scientist and product lead based out of Atlanta, GA. 
           </p>
           <p>
-            I currently work at <a href='bigtimedata.io'>Big Time Data</a>, helping teams architect and build data infrastructure and tooling. 
-            Before that, I was Head of Data and Product Experience at <a href='datafold.com'>Datafold</a> and Director of Data at <a href='cypress.io'>Cypress.io</a>.
+            I currently work at <a href='https://www.bigtimedata.io'>Big Time Data</a>, helping teams architect and build data infrastructure and tooling. 
+            Before that, I was Head of Data and Product Experience at <a href='https://www.datafold.com'>Datafold</a> and Director of Data at <a href='https://www.cypress.io'>Cypress.io</a>.
           </p>
           <Socials />
         </div>
@@ -41,13 +41,13 @@ function Home() {
 function Socials() {
   return (
     <div className={styles.social__links} >
-      <a href='twitter.com/williebsweet' target="_blank">
+      <a href='https://www.twitter.com/williebsweet' target="_blank">
           <Icon icon="ri:twitter-line" />
       </a>
-      <a href='linkedin.com/in/williebsweet' target="_blank">
+      <a href='https://www.linkedin.com/in/williebsweet' target="_blank">
           <Icon icon="ri:linkedin-line" />
       </a>
-      <a href='github.com/williebsweet' target="_blank">
+      <a href='https://www.github.com/williebsweet' target="_blank">
           <Icon icon="ri:github-line" />
       </a>
     </div>
