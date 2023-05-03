@@ -32,9 +32,10 @@ const config = {
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
-        docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-        },
+        // docs: {
+        //   sidebarPath: require.resolve('./sidebars.js'),
+        // },
+        docs: false,
         blog: {
           showReadingTime: true,
         },
@@ -56,12 +57,12 @@ const config = {
         },
         items: [
           {to: '/blog', label: 'Blog', position: 'right'},
-          {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'right',
-            label: 'Projects',
-          },
+          // {
+          //   type: 'docSidebar',
+          //   sidebarId: 'tutorialSidebar',
+          //   position: 'right',
+          //   label: 'Projects',
+          // },
           {
             href: 'https://github.com/williebsweet',
             label: 'GitHub',
