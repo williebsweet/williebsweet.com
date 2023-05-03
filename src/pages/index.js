@@ -22,7 +22,11 @@ function Home() {
             I'm <span className={styles.intro__name}>Will</span>.
           </div>
           <p>
-            A brief one to two sentences about myself and my interests.
+            I'm a data scientist and product lead based out of Atlanta, GA. 
+          </p>
+          <p>
+            I currently work at <a href='bigtimedata.io'>Big Time Data</a>, helping teams architect and build data infrastructure and tooling. 
+            Before that, I was Head of Data and Product Experience at <a href='datafold.com'>Datafold</a> and Director of Data at <a href='cypress.io'>Cypress.io</a>.
           </p>
           <Socials />
         </div>
