@@ -4,18 +4,17 @@
   max-width: 100%;
   margin: 0;
   display: grid;
-  grid-template-columns: 8fr 11fr;
+  grid-template-columns: 11fr 11fr;
   align-items: center;
   position: relative;
-  /* background: url("/img/hero_main.svg") no-repeat right; */
-  /* background-size: 60vw; */
   letter-spacing: 0.04em;
   padding: 0;
 }
 
 .bloghome__intro {
   padding: 1em;
-  padding-left: 4em;
+  padding-left: 7em;
+  padding-right: 7em;
   position: relative;
   z-index: 10;
 }
@@ -24,6 +23,10 @@
   font-size: calc(1.8em + 1.2vw);
   color: #363636;
   /* font-weight: 600; */
+}
+
+html[data-theme='dark'] .bloghome__intro .hero_text {
+  color: #dfdfdf;
 }
 
 .intro__name {
@@ -37,11 +40,6 @@
   text-align: justify;
   letter-spacing: -0.04em;
   line-height: 32px;
-}
-
-.bloghome__intro > p:nth-child(3) {
-  align-self: start;
-  margin-top: 0;
 }
 
 html[data-theme='dark'] .bloghome__intro > p {
@@ -117,8 +115,67 @@ html[data-theme='dark'] .bloghome__intro > p {
   top: 120%;
 }
 
-.buttons {
+/* .buttons {
   display: flex;
   align-items: center;
   justify-content: center;
+} */
+
+@media (max-width: 1000px) {
+  .hero {
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content minmax(0, max-content);
+    align-items: start;
+    height: auto;
+    /* background-position: center bottom;
+        background-size: 70vh; */
+  }
+
+  .bloghome__intro {
+    padding: 0 var(--ifm-spacing-horizontal);
+    padding-top: 4em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bloghome__image {
+    width: 50%;
+    justify-self: center;
+    padding-top: 4em;
+    height: 100%;
+    display: grid;
+    place-items: center;
+  }
+
+  .bloghome__image svg {
+    width: 90%;
+    height: auto;
+  }
+}
+
+@media (max-width: 570px) {
+  .hero {
+    height: auto;
+  }
+
+  .bloghome__image {
+    padding-top: 2em;
+  }
+
+  .bloghome__image svg {
+    width: 100%;
+    height: auto;
+    padding-left: 12px;
+  }
+
+  .bloghome__intro {
+    padding-top: 2em;
+  }
+}
+
+:global(.hero_main_svg__js_rotate) {
+  animation: rotating 4s ease-in-out infinite;
+  transform-origin: center center;
+  transform-box: fill-box;
 }
