@@ -8,8 +8,6 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import styles from './index.module.css';
 import { Icon } from '@iconify/react';
 
-import HeadShot from '/img/headshot_rounded_border.svg';
-
 function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
@@ -22,16 +20,16 @@ function Home() {
             I'm <span className={styles.intro__name}>Will</span>.
           </div>
           <p>
-            I'm a data scientist and product lead based out of Atlanta, GA. 
+            I'm a data and AI leader based in Atlanta, GA. I build at the intersection of applied AI, data infrastructure, and business strategy.
           </p>
           <p>
-            I currently work at <a href='https://www.bigtimedata.io'>Big Time Data</a>, helping teams architect and build data infrastructure and tooling. 
-            Before that, I was Head of Data and Product Experience at <a href='https://www.datafold.com'>Datafold</a> and Director of Data at <a href='https://www.cypress.io'>Cypress.io</a>.
+            I currently work at <a href='https://www.enam.co'>Enam</a>, where I build multi-agent LLM systems and connect financial analysis to product roadmaps.
+            Previously, I led data teams and consulting engagements at <a href='https://www.bigtimedata.io'>Big Time Data</a>, <a href='https://www.datafold.com'>Datafold</a>, and <a href='https://www.cypress.io'>Cypress.io</a>.
           </p>
           <Socials />
         </div>
         <div className={styles.bloghome__image}>
-          <HeadShot />
+          <img src="/img/headshot.jpeg" alt="Will Sweet" className={styles.headshot} />
         </div>
       </div>
     </Layout>
