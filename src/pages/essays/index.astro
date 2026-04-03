@@ -1,0 +1,31 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import PostList from '../../components/PostList.astro';
+import { getCollection } from 'astro:content';
+
+const essays = await getCollection('essays', ({ data }) => !data.draft);
+const sorted = essays
+  .map(e => ({ ...e, collection: 'essays' as const }))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<PageLayout title="Essays — Will Sweet" description="Long-form writing on AI, data, and strategy.">
+  <h1 class="page-title">Essays</h1>
+  {sorted.length > 0 ? (
+    <PostList posts={sorted} showDescription />
+  ) : (
+    <p class="empty">No essays yet. Check back soon.</p>
+  )}
+</PageLayout>
+
+<style>
+  .page-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    margin-bottom: 2rem;
+  }
+
+  .empty {
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+</style>
