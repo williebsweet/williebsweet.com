@@ -7,7 +7,7 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 
 export default defineConfig({
-  site: 'https://williebsweet.com',
+  site: 'https://primitivethinking.com',
   integrations: [mdx(), react(), sitemap()],
   markdown: {
     syntaxHighlight: 'shiki',

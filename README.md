@@ -1,4 +1,4 @@
-# williebsweet.com
+# primitivethinking.com
 
 Personal site built with [Astro](https://astro.build/). Writing section branded as **Primitive Thinking**.
 
