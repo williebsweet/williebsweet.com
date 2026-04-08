@@ -1,0 +1,72 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { getAllPosts } from '../../utils/posts';
+
+const posts = await getAllPosts();
+const tagCounts = new Map<string, number>();
+for (const post of posts) {
+  for (const tag of post.data.tags ?? []) {
+    tagCounts.set(tag, (tagCounts.get(tag) ?? 0) + 1);
+  }
+}
+const tags = [...tagCounts.entries()].sort((a, b) => b[1] - a[1]);
+---
+
+<PageLayout title="Tags — Will Sweet">
+  <h1 class="page-title">Tags</h1>
+  {tags.length > 0 ? (
+    <div class="tag-grid">
+      {tags.map(([tag, count]) => (
+        <a href={`/tags/${tag}`} class="tag-item">
+          <span class="tag-name">{tag}</span>
+          <span class="tag-count">{count}</span>
+        </a>
+      ))}
+    </div>
+  ) : (
+    <p class="empty">No tags yet.</p>
+  )}
+</PageLayout>
+
+<style>
+  .page-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    margin-bottom: 2rem;
+  }
+
+  .tag-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .tag-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--color-text);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 0.375rem 0.75rem;
+    text-decoration: none;
+    transition: border-color 0.2s ease;
+  }
+
+  .tag-item:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .tag-count {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+  }
+
+  .empty {
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+</style>

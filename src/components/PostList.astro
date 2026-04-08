@@ -1,0 +1,87 @@
+---
+interface PostItem {
+  id: string;
+  collection: string;
+  data: {
+    title: string;
+    pubDate: Date;
+    description?: string;
+  };
+}
+
+interface Props {
+  posts: PostItem[];
+  showDescription?: boolean;
+}
+
+const { posts, showDescription = false } = Astro.props;
+---
+
+<ul class="post-list">
+  {posts.map(post => {
+    const href = `/${post.collection}/${post.id}`;
+    const date = post.data.pubDate.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    });
+    return (
+      <li class="post-item">
+        <span class="post-date">{date}</span>
+        <div>
+          <a href={href} class="post-title">{post.data.title}</a>
+          {showDescription && post.data.description && (
+            <p class="post-desc">{post.data.description}</p>
+          )}
+        </div>
+      </li>
+    );
+  })}
+</ul>
+
+<style>
+  .post-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .post-item {
+    display: flex;
+    align-items: baseline;
+    gap: 1.25rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .post-item:first-child {
+    padding-top: 0;
+  }
+
+  .post-date {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+    min-width: 90px;
+  }
+
+  .post-title {
+    font-family: var(--font-heading);
+    font-size: 1.125rem;
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .post-title:hover {
+    color: var(--color-primary);
+  }
+
+  .post-desc {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-top: 0.25rem;
+    line-height: 1.5;
+  }
+</style>

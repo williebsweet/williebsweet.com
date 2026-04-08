@@ -1,0 +1,31 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import PostList from '../../components/PostList.astro';
+import { getCollection } from 'astro:content';
+
+const links = await getCollection('links', ({ data }) => !data.draft);
+const sorted = links
+  .map(l => ({ ...l, collection: 'links' as const }))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<PageLayout title="Links — Will Sweet" description="Things I've found interesting.">
+  <h1 class="page-title">Links</h1>
+  {sorted.length > 0 ? (
+    <PostList posts={sorted} showDescription />
+  ) : (
+    <p class="empty">No links yet. Check back soon.</p>
+  )}
+</PageLayout>
+
+<style>
+  .page-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    margin-bottom: 2rem;
+  }
+
+  .empty {
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+</style>

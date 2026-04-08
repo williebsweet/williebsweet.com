@@ -1,0 +1,41 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import PostList from '../../components/PostList.astro';
+import { getAllPosts } from '../../utils/posts';
+
+export async function getStaticPaths() {
+  const posts = await getAllPosts();
+  const tags = [...new Set(posts.flatMap(p => p.data.tags ?? []))];
+
+  return tags.map(tag => ({
+    params: { tag },
+    props: {
+      tag,
+      posts: posts.filter(p => p.data.tags?.includes(tag)),
+    },
+  }));
+}
+
+const { tag, posts } = Astro.props;
+---
+
+<PageLayout title={`Tagged "${tag}" — Will Sweet`}>
+  <h1 class="page-title">Tagged: {tag}</h1>
+  <PostList posts={posts} />
+  <a href="/tags" class="back-link">&larr; All tags</a>
+</PageLayout>
+
+<style>
+  .page-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    margin-bottom: 2rem;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--color-primary);
+  }
+</style>

@@ -1,0 +1,52 @@
+---
+---
+
+<nav class="nav">
+  <a href="/" class="nav-brand">Will Sweet</a>
+  <div class="nav-links">
+    <a href="/writing">Primitive Thinking</a>
+  </div>
+</nav>
+
+<style>
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    height: var(--nav-height);
+  }
+
+  .nav-brand {
+    font-family: var(--font-heading);
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-text);
+    text-decoration: none;
+    margin-right: auto;
+  }
+
+  .nav-brand:hover {
+    color: var(--color-primary);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-left: 2rem;
+  }
+
+  .nav-links a {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+  }
+
+  .nav-links a:hover {
+    color: var(--color-primary);
+  }
+</style>

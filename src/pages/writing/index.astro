@@ -1,0 +1,28 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import PostList from '../../components/PostList.astro';
+import { getAllPosts } from '../../utils/posts';
+
+const posts = await getAllPosts();
+---
+
+<PageLayout title="Primitive Thinking — Will Sweet" description="Essays and links on AI, data, and strategy.">
+  <h1 class="page-title">Primitive Thinking</h1>
+  {posts.length > 0 ? (
+    <PostList posts={posts} showDescription />
+  ) : (
+    <p class="empty">Nothing here yet. Check back soon.</p>
+  )}
+</PageLayout>
+
+<style>
+  .page-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    margin-bottom: 2rem;
+  }
+
+  .empty {
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+</style>

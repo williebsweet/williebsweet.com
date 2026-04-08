@@ -1,0 +1,39 @@
+---
+interface Props {
+  tags: string[];
+}
+
+const { tags } = Astro.props;
+---
+
+<div class="tag-list">
+  {tags.map(tag => (
+    <a href={`/tags/${tag}`} class="tag">{tag}</a>
+  ))}
+</div>
+
+<style>
+  .tag-list {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 0.75rem;
+  }
+
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: 0.125rem 0.5rem;
+    text-decoration: none;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .tag:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+</style>
