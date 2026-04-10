@@ -14,7 +14,13 @@ export async function getAllPosts() {
     ...links.map(l => ({ ...l, collection: 'links' as const })),
   ];
 
-  return all.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  return all.sort((a, b) => {
+    const aPinned = 'pinned' in a.data && a.data.pinned;
+    const bPinned = 'pinned' in b.data && b.data.pinned;
+    if (aPinned && !bPinned) return -1;
+    if (!aPinned && bPinned) return 1;
+    return b.data.pubDate.valueOf() - a.data.pubDate.valueOf();
+  });
 }
 
 export async function getRecentPosts(count = 5) {

@@ -6,7 +6,11 @@ import { getCollection } from 'astro:content';
 const essays = await getCollection('essays', ({ data }) => !data.draft);
 const sorted = essays
   .map(e => ({ ...e, collection: 'essays' as const }))
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  .sort((a, b) => {
+    if (a.data.pinned && !b.data.pinned) return -1;
+    if (!a.data.pinned && b.data.pinned) return 1;
+    return b.data.pubDate.valueOf() - a.data.pubDate.valueOf();
+  });
 ---
 
 <PageLayout title="Essays — Will Sweet" description="Long-form writing on AI, data, and strategy.">
