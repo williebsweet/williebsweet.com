@@ -1,0 +1,24 @@
+---
+title: "The Luxury to Care"
+description: Price and package features against the customer's luxury to care about them.
+pubDate: 2026-05-02
+tags: [quick-thought]
+---
+
+At Cypress.io we revisited our pricing. The feedback came back bimodal: some customers felt they were overpaying, some felt they were underpaying.
+
+The split made sense once I dug in. The overpayers weren't using everything we shipped. The underpayers, and the quiet majority, used all of it.
+
+The product had a natural progression, and that progression mapped to the customer's maturity in the problem space.
+
+Cypress's headline feature was orchestrating test runs in CI - parallelizing tests across however many machines you gave us access to. Below that sat the table stakes that matter the moment a test fails: stack traces in the dashboard, videos and screenshots of failures, flaky retries, analytics. Above it sat intelligent load balancing - useful if you had tens of millions of tests across a fleet of machines and were tired of one fat test holding the whole run hostage.
+
+Here's the thing. Parallelization is worthless if you don't have enough tests for it to save you any time. Intelligent load balancing is worthless if you don't have enough machines for the bin-packing problem to exist. But the table-stakes stuff is valuable to anyone with a single failing test.
+
+We'd bundled them together. Of course the small customers felt overpriced.
+
+The customers who needed parallelization were, by nature, already paying for more CI. They had bigger budgets, longer test suites, and were feeling the pain we were selling into. They had the luxury to care.
+
+That's the principle. Price and package features against the customer's luxury to care about each one. If a customer doesn't have the tests, the budget, or the time to feel a problem, they don't have the luxury to care about your solution - and they shouldn't be paying for it. Mirror the customer's maturity in your packaging, and the same product stops feeling overpriced to early users and underpriced to power users.
+
+One more thing on selling tests. Test runs are insurance. You don't notice paying for passing tests, because they pass and you assume you did good work. You notice the run that catches what would have shipped to prod. The real product isn't coverage. It's catches.
