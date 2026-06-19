@@ -8,6 +8,7 @@ const posts = await getAllPosts();
 
 <PageLayout title="Primitive Thinking — Will Sweet" description="Essays and links on AI, data, and strategy.">
   <h1 class="page-title">Primitive Thinking</h1>
+  <p class="page-tagline">Simple, not simplistic</p>
   {posts.length > 0 ? (
     <PostList posts={posts} showDescription />
   ) : (
@@ -18,6 +19,12 @@ const posts = await getAllPosts();
 <style>
   .page-title {
     font-size: clamp(1.75rem, 4vw, 2.5rem);
+    margin-bottom: 0.5rem;
+  }
+
+  .page-tagline {
+    color: var(--color-text-secondary);
+    font-size: 1.125rem;
     margin-bottom: 2rem;
   }
 
