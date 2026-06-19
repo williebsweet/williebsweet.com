@@ -1,13 +1,19 @@
 import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import { join } from 'node:path';
+import { hasContentFiles } from './content-files';
+
+const linksContentDir = join(process.cwd(), 'src/content/links');
+
+export async function getPublishedLinks(): Promise<CollectionEntry<'links'>[]> {
+  if (!hasContentFiles(linksContentDir)) return [];
+
+  return getCollection('links', ({ data }) => !data.draft);
+}
 
 export async function getAllPosts() {
   const essays = await getCollection('essays', ({ data }) => !data.draft);
-  let links: Awaited<ReturnType<typeof getCollection>>  = [];
-  try {
-    links = await getCollection('links', ({ data }) => !data.draft);
-  } catch {
-    // Collection may be empty — that's fine
-  }
+  const links = await getPublishedLinks();
 
   const all = [
     ...essays.map(e => ({ ...e, collection: 'essays' as const })),

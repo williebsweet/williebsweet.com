@@ -1,9 +1,9 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
 import PostList from '../../components/PostList.astro';
-import { getCollection } from 'astro:content';
+import { getPublishedLinks } from '../../utils/posts';
 
-const links = await getCollection('links', ({ data }) => !data.draft);
+const links = await getPublishedLinks();
 const sorted = links
   .map(l => ({ ...l, collection: 'links' as const }))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
