@@ -1,10 +1,13 @@
 ---
+const pathname = Astro.url.pathname;
+const isHome = pathname === '/';
+const isWriting = ['/writing', '/essays', '/links', '/tags'].some(path => pathname.startsWith(path));
 ---
 
 <nav class="nav">
-  <a href="/" class="nav-brand">Will Sweet</a>
+  <a href="/" class="nav-brand" aria-current={isHome ? 'page' : undefined}>Will Sweet</a>
   <div class="nav-links">
-    <a href="/writing">Primitive Thinking</a>
+    <a href="/writing" aria-current={isWriting ? 'page' : undefined}>Primitive Thinking</a>
   </div>
 </nav>
 
@@ -22,10 +25,14 @@
   .nav-brand {
     font-family: var(--font-heading);
     font-size: 1.125rem;
-    font-weight: 700;
+    font-weight: 500;
     color: var(--color-text);
     text-decoration: none;
     margin-right: auto;
+  }
+
+  .nav-brand[aria-current='page'] {
+    font-weight: 700;
   }
 
   .nav-brand:hover {
@@ -44,6 +51,11 @@
     font-size: 0.875rem;
     color: var(--color-text-secondary);
     text-decoration: none;
+  }
+
+  .nav-links a[aria-current='page'] {
+    color: var(--color-text);
+    font-weight: 500;
   }
 
   .nav-links a:hover {
